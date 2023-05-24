@@ -20,6 +20,14 @@ return {
       return opts
     end,
   },
+  {
+    "max397574/better-escape.nvim",
+    config = function()
+      require("better_escape").setup({
+        mapping = { "kj", "jk" },
+      })
+    end,
+  },
   -- You can disable default plugins as follows:
   -- { "max397574/better-escape.nvim", enabled = false },
   --

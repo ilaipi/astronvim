@@ -31,7 +31,7 @@ return {
     formatting = {
       -- control auto formatting on save
       format_on_save = {
-        enabled = true, -- enable or disable format on save globally
+        enabled = false, -- enable or disable format on save globally
         allow_filetypes = { -- enable format on save for specified filetypes only
           -- "go",
         },
@@ -81,5 +81,23 @@ return {
     --     ["~/%.config/foo/.*"] = "fooscript",
     --   },
     -- }
+    vim.keymap.set("x", "L", "g_", { desc = "Jump to the end of the character" })
+    vim.keymap.set("n", "L", "g_", { desc = "Jump to the end of the character" })
+    vim.keymap.set("x", "H", "^", { desc = "Jump to the beginning of the character" })
+    vim.keymap.set("n", "H", "^", { desc = "Jump to the beginning of the character" })
+    vim.keymap.set("n", ";w", ":w<CR>", { desc = "Save buffer" })
+
+    vim.keymap.set("n", ";h", function()
+      require("smart-splits").move_cursor_left()
+    end, { desc = "Move to left split" })
+    vim.keymap.set("n", ";j", function()
+      require("smart-splits").move_cursor_down()
+    end, { desc = "Move to below split" })
+    vim.keymap.set("n", ";k", function()
+      require("smart-splits").move_cursor_up()
+    end, { desc = "Move to above split" })
+    vim.keymap.set("n", ";l", function()
+      require("smart-splits").move_cursor_right()
+    end, { desc = "Move to right split" })
   end,
 }
